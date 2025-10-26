@@ -1,34 +1,24 @@
 using UnityEngine;
 using TMPro;
 using Managers;
+using Systems;
 
 public class FloorDisplayUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI floorText;
+    private PlayerSystem player;
 
-    private void Start()
+    void Start()
     {
         if (floorText == null)
             floorText = GetComponent<TextMeshProUGUI>();
 
-        UpdateFloorText(GameManager.Instance.currentFloor);
+        player = FindFirstObjectByType<PlayerSystem>();
     }
 
-    private void OnEnable()
+    void Update()
     {
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnFloorChanged += UpdateFloorText;
-    }
-
-    private void OnDisable()
-    {
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnFloorChanged -= UpdateFloorText;
-    }
-
-    private void UpdateFloorText(int floorNumber)
-    {
-        if (floorText != null)
-            floorText.text = $"Floor {floorNumber}";
+        if (player != null && player.inventory != null)
+            floorText.text = $"Floor {player.inventory.currentFloor}";
     }
 }

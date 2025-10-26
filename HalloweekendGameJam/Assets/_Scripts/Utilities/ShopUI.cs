@@ -183,29 +183,41 @@ public class ShopUI : MonoBehaviour
     // TRADE LOGIC
     private void TradeCoinsForGems()
     {
-        if (player.inventory.coins >= 10)
+        int cost = 2;
+        int reward = 1;
+
+        if (player.inventory.coins >= cost)
         {
-            player.inventory.coins -= 10;
-            player.inventory.gems += 1;
-            Debug.Log("[ShopUI] Traded 10 Coins for 1 Gem.");
+            player.inventory.coins -= cost;
+            player.inventory.gems += reward;
+            Debug.Log($"[ShopUI] Traded {cost} Coins for {reward} Gem.");
+
+            RewardPopupManager.Instance.ShowPopup($"+{reward} Gem", new Color(1f, 0.5f, 1f), player.transform.position + Vector3.up);
         }
         else
         {
             Debug.Log("[ShopUI] Not enough coins for Gem trade.");
+            RewardPopupManager.Instance.ShowPopup("Not enough coins!", Color.red, player.transform.position + Vector3.up);
         }
     }
 
     private void TradeCoinsForStamina()
     {
-        if (player.inventory.coins >= 5)
+        int cost = 1;
+        int reward = 3;
+
+        if (player.inventory.coins >= cost)
         {
-            player.inventory.coins -= 5;
-            player.inventory.AddStamina(10);
-            Debug.Log("[ShopUI] Traded 5 Coins for 10 Stamina.");
+            player.inventory.coins -= cost;
+            player.inventory.AddStamina(reward);
+            Debug.Log($"[ShopUI] Traded {cost} Coins for {reward} Stamina.");
+
+            RewardPopupManager.Instance.ShowPopup($"+{reward} Stamina", Color.green, player.transform.position + Vector3.up);
         }
         else
         {
             Debug.Log("[ShopUI] Not enough coins for Stamina trade.");
+            RewardPopupManager.Instance.ShowPopup("Not enough coins!", Color.red, player.transform.position + Vector3.up);
         }
     }
 }

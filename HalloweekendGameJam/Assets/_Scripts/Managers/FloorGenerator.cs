@@ -87,6 +87,13 @@ namespace Managers
             int endY = GridManager.Instance.height - 1;
             var endTile = GridManager.Instance.GetTile(endX, endY);
             endTile.type = TileType.End;
+            endTile.isLocked = false;
+
+            // Make sure all doors on the End Room are open
+            endTile.SetDoor(Direction.Up, true);
+            endTile.SetDoor(Direction.Down, true);
+            endTile.SetDoor(Direction.Left, true);
+            endTile.SetDoor(Direction.Right, true);
 
             // Load the End Room
             RoomDefinition endRoomDef = null;
@@ -108,8 +115,15 @@ namespace Managers
                 if (endRoomDef.doorkeeperPrefab != null)
                 {
                     GameObject npc = Instantiate(endRoomDef.doorkeeperPrefab);
-                    npc.transform.position = new Vector3(endX - 0.15f, endY - 0.4f, 0f);
+                    npc.transform.position = new Vector3(endX - 0.2f, endY + 0.25f, 0f);
                     npc.transform.SetParent(endObj.transform);
+                }
+
+                // Auto-connect the End Room to the tile below (so it's reachable)
+                if (GridManager.Instance.InBounds(endX, endY - 1))
+                {
+                    var belowTile = GridManager.Instance.GetTile(endX, endY - 1);
+                    GridManager.Instance.ConnectRooms(endX, endY, endX, endY - 1);
                 }
             }
             else

@@ -7,7 +7,7 @@ public class PlayerInventory
     public int keys;
     public int gems;
     public int stamina;
-    
+    public int currentFloor = 1;
 
     // Add resources
     public void AddCoins(int amount) => coins += amount;
@@ -37,5 +37,18 @@ public class PlayerInventory
     public void LoseStamina(int amount)
     {
         stamina -= amount;
+    }
+
+    public void ResetForNewRun()
+    {
+        coins = 0;
+        gems = 0;
+        stamina = 10;
+        currentFloor = 1;
+    }
+
+    public void AdvanceFloor()
+    {
+        currentFloor++;
     }
 }
