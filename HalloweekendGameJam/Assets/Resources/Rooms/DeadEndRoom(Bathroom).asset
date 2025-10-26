@@ -12,21 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: DeadEndRoom(Bathroom)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: Dead End (+10 Stamina)
+  roomName: Dead End (+10 Paper) (-1 Pebbles)
   layout: 0
   spriteFromUp: {fileID: 21300000, guid: 735d6580b5ac35c43a2ea2d30d58e446, type: 3}
   spriteFromDown: {fileID: 21300000, guid: 7411e7b2264fd8a4d8a1685c31833859, type: 3}
   spriteFromLeft: {fileID: 21300000, guid: b94f1d9a846f7f240b7f18a76c6d28f0, type: 3}
   spriteFromRight: {fileID: 21300000, guid: 31fd4e3aabb9fdd4fb6d950a5a4385fb, type: 3}
-  coinCost: 0
-  keyCost: 0
-  gemCost: 0
+  gemCost: 1
   coinReward: 0
-  keyReward: 0
   gemReward: 0
-  staminaGain: 0
+  staminaGain: 10
   staminaLoss: 0
   requiresEndKey: 0
   grantsEndKey: 0
-  oneTimeReward: 0
-  repeatableStamina: 0
+  oneTimeReward: 1
+  repeatableStamina: 1
+  uniquePerFloor: 0
+  shopkeeperPrefab: {fileID: 0}
+  doorkeeperPrefab: {fileID: 0}
+  eggPrefab: {fileID: 0}

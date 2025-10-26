@@ -247,12 +247,20 @@ namespace Systems
             // Stay in the End Room for a short moment
             yield return new WaitForSeconds(1.5f);
 
-            // Then trigger floor transition
+            // Advance the player's floor level
+            inventory.AdvanceFloor();
+            Debug.Log($"[Player] Reached end room — advancing to Floor {inventory.currentFloor}");
+
+            // Then trigger floor regeneration
             GameManager gm = FindFirstObjectByType<GameManager>();
             if (gm != null)
-                gm.NextFloor();
+            {
+                gm.NextFloor(); // still rebuilds the map and resets player pos
+            }
             else
+            {
                 Debug.LogError("GameManager not found when trying to load next floor!");
+            }
         }
 
         private void ApplyRoomRewards(Tile tile)
@@ -263,7 +271,9 @@ namespace Systems
             // Player world position for popup placement
             Vector3 popupPos = transform.position + Vector3.up * 1.5f;
 
-            // One-time collectible rewards (coins, gems)
+            bool gainedSomething = false;
+
+            // --- ONE-TIME REWARDS: Coins & Gems ---
             if (def.oneTimeReward && tile.rewardCollected)
             {
                 Debug.Log($"{def.roomName} reward already collected!");
@@ -274,35 +284,45 @@ namespace Systems
                 {
                     inventory.AddCoins(def.coinReward);
                     RewardPopupManager.Instance.ShowPopup($"+{def.coinReward} Coins!", Color.yellow, popupPos);
+                    gainedSomething = true;
                 }
 
                 if (def.gemReward > 0)
                 {
                     inventory.AddGems(def.gemReward);
                     RewardPopupManager.Instance.ShowPopup($"+{def.gemReward} Gem!", new Color(1f, 0.3f, 1f), popupPos);
+                    gainedSomething = true;
                 }
-
-                if (def.oneTimeReward)
-                    tile.rewardCollected = true;
             }
 
-            // Stamina effects (repeatable or first-time only)
-            bool applyStamina = def.repeatableStamina || !tile.rewardCollected;
-
-            if (applyStamina)
+            // --- STAMINA REWARDS (One-time or Repeatable) ---
+            if (def.staminaGain > 0 || def.staminaLoss > 0)
             {
-                if (def.staminaGain > 0)
-                {
-                    inventory.AddStamina(def.staminaGain);
-                    RewardPopupManager.Instance.ShowPopup($"+{def.staminaGain} Stamina", Color.green, popupPos);
-                }
+                bool canApply =
+                    def.repeatableStamina ||                     // Always applies if repeatable
+                    (!tile.rewardCollected && def.oneTimeReward); // Or only once if one-time
 
-                if (def.staminaLoss > 0)
+                if (canApply)
                 {
-                    inventory.LoseStamina(def.staminaLoss);
-                    RewardPopupManager.Instance.ShowPopup($"–{def.staminaLoss} Stamina", Color.red, popupPos);
+                    if (def.staminaGain > 0)
+                    {
+                        inventory.AddStamina(def.staminaGain);
+                        RewardPopupManager.Instance.ShowPopup($"+{def.staminaGain} Stamina", Color.green, popupPos);
+                    }
+
+                    if (def.staminaLoss > 0)
+                    {
+                        inventory.LoseStamina(def.staminaLoss);
+                        RewardPopupManager.Instance.ShowPopup($"–{def.staminaLoss} Stamina", Color.red, popupPos);
+                    }
+
+                    gainedSomething = true;
                 }
             }
+
+            // Only mark as collected AFTER all rewards are given
+            if (def.oneTimeReward && gainedSomething)
+                tile.rewardCollected = true;
 
             Debug.Log($"Applied effects from {def.roomName}: {inventory}");
         }
@@ -348,6 +368,7 @@ namespace Systems
 
             Debug.Log("[PlayerSystem] Death animation complete. Restarting...");
 
+            inventory.ResetForNewRun();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

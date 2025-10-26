@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9098039}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1293,8 +1293,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201CTrade Seeds for Pebbles (I)\u201D\n\n\u201CTrade Seeds for Toilet
-    Paper (O)\u201D"
+  m_text: "\u201CTrade 2 Seeds for 1 Pebble (I)\u201D\n\n\u201CTrade 1 Seed for 3
+    Toilet Paper (O)\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db7f2e524930ef443bb80c3c5bcd2357, type: 2}
   m_sharedMaterial: {fileID: 7135284905747412127, guid: db7f2e524930ef443bb80c3c5bcd2357, type: 2}
@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b48959c12d12634d8e89481e24dcfe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.GameManager
-  currentFloor: 1
+  currentFloor: 0
 --- !u!4 &1491980897
 Transform:
   m_ObjectHideFlags: 0

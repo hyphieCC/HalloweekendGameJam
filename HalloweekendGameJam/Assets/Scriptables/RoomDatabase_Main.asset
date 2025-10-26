@@ -24,6 +24,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e24ee6c337ea2df459f9e172ada970a8, type: 2}
   - {fileID: 11400000, guid: 5508fc5ca1174bd4a8f6749e1a5053a9, type: 2}
   - {fileID: 11400000, guid: cc94a4453289a09409c789cca5b80865, type: 2}
+  - {fileID: 11400000, guid: 9bdae33900cded548adc5747b895f691, type: 2}
+  - {fileID: 11400000, guid: 5966ddfe84900db4a81ea1aa636dd763, type: 2}
+  - {fileID: 11400000, guid: e9ed094aea67f774d912909c488d8cb2, type: 2}
+  - {fileID: 11400000, guid: e05cc464334c84d488029b28ef30dd30, type: 2}
+  - {fileID: 11400000, guid: 645ab30a3a65cb54f81384616662aec6, type: 2}
+  - {fileID: 11400000, guid: ba8c55040e889ed44839fb686d988cfe, type: 2}
+  - {fileID: 11400000, guid: 1570d5b7fa3ef9c4faff10901bd5a88d, type: 2}
+  - {fileID: 11400000, guid: aefdf2ed4d8215545887e892a11e5645, type: 2}
+  - {fileID: 11400000, guid: 2b4009a85fed25644a9cd6e758197e92, type: 2}
   basicRooms: []
   specialRooms: []
   trapRooms: []

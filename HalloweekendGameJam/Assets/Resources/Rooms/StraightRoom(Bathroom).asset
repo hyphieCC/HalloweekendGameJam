@@ -18,15 +18,16 @@ MonoBehaviour:
   spriteFromDown: {fileID: 21300000, guid: 7a15e04bde3567346812d83e3e173b20, type: 3}
   spriteFromLeft: {fileID: 21300000, guid: 024382bf9351e34428f0a3147c15f633, type: 3}
   spriteFromRight: {fileID: 21300000, guid: 024382bf9351e34428f0a3147c15f633, type: 3}
-  coinCost: 0
-  keyCost: 0
   gemCost: 0
   coinReward: 0
-  keyReward: 0
   gemReward: 0
-  staminaGain: 1
+  staminaGain: 2
   staminaLoss: 0
   requiresEndKey: 0
   grantsEndKey: 0
-  oneTimeReward: 0
+  oneTimeReward: 1
   repeatableStamina: 1
+  uniquePerFloor: 0
+  shopkeeperPrefab: {fileID: 0}
+  doorkeeperPrefab: {fileID: 0}
+  eggPrefab: {fileID: 0}

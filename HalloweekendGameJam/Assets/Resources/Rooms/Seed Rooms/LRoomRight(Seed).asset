@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: LRoomRight(Seed)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: L Room (Right)
+  roomName: L Room (Right) (+3 Seeds)
   layout: 3
   spriteFromUp: {fileID: 21300000, guid: 17296db00ff5f554281696b6cbf5426d, type: 3}
   spriteFromDown: {fileID: 21300000, guid: 315006bb77d9fab45b6d929ee3430c9b, type: 3}
   spriteFromLeft: {fileID: 21300000, guid: 56650960be3ac9b49b12255be9c00cee, type: 3}
   spriteFromRight: {fileID: 21300000, guid: 292c13b07bf9222499349e468758e833, type: 3}
-  coinCost: 0
-  keyCost: 0
   gemCost: 0
-  coinReward: 0
-  keyReward: 0
+  coinReward: 3
   gemReward: 0
   staminaGain: 0
   staminaLoss: 0
   requiresEndKey: 0
   grantsEndKey: 0
-  oneTimeReward: 0
+  oneTimeReward: 1
   repeatableStamina: 0
   uniquePerFloor: 0
+  shopkeeperPrefab: {fileID: 0}
+  doorkeeperPrefab: {fileID: 0}
+  eggPrefab: {fileID: 0}

@@ -14,6 +14,7 @@ namespace Managers
 
         protected override void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             base.Awake();
             floorGen = FindFirstObjectByType<FloorGenerator>();
             player = FindFirstObjectByType<PlayerSystem>();
@@ -22,6 +23,7 @@ namespace Managers
         public void NextFloor()
         {
             currentFloor++;
+            Debug.Log($"[GameManager] OnFloorChanged invoked for Floor {currentFloor}");
             OnFloorChanged?.Invoke(currentFloor);
             Debug.Log($"Generating Floor {currentFloor}");
 

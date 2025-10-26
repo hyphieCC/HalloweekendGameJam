@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Systems;
 using System.Collections;
 using Managers;
-using UnityEditor.Rendering.LookDev;
 
 public class RoomSelectionUI : MonoBehaviour
 {
@@ -165,13 +164,42 @@ public class RoomSelectionUI : MonoBehaviour
     {
         FloorGenerator floorGen = FindFirstObjectByType<FloorGenerator>();
 
+        // Prevent duplicates of unique rooms per floor
         if (room.uniquePerFloor && floorGen.shopBuiltThisFloor)
         {
             Debug.Log("You already built a shop this floor!");
-            FindFirstObjectByType<CameraSystem>()?.Shake(); // optional feedback
+            FindFirstObjectByType<CameraSystem>()?.Shake();
             return;
         }
 
+        // GEM COST CHECK HERE
+        if (room.gemCost > 0)
+        {
+            if (currentPlayer == null)
+                currentPlayer = FindFirstObjectByType<PlayerSystem>();
+
+            if (currentPlayer.inventory.gems < room.gemCost)
+            {
+                Debug.Log($"[RoomSelection] Not enough gems! Need {room.gemCost}, have {currentPlayer.inventory.gems}");
+                RewardPopupManager.Instance.ShowPopup(
+                    $"Not enough Gems! ({currentPlayer.inventory.gems}/{room.gemCost})",
+                    Color.red,
+                    currentPlayer.transform.position + Vector3.up
+                );
+                FindFirstObjectByType<CameraSystem>()?.Shake();
+                return;
+            }
+
+            // Deduct gems and show popup
+            currentPlayer.inventory.gems -= room.gemCost;
+            RewardPopupManager.Instance.ShowPopup(
+                $"-{room.gemCost} Gems",
+                new Color(1f, 0.3f, 1f),
+                currentPlayer.transform.position + Vector3.up
+            );
+        }
+
+        // Proceed to build room only if player can afford it
         if (currentPlayer != null)
         {
             var builder = FindFirstObjectByType<RoomBuilderSystem>();

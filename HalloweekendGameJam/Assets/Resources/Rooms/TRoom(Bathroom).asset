@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: TRoom(Bathroom)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: T Room
+  roomName: T Room (+2 Stamina) (-1 Pebble)
   layout: 4
   spriteFromUp: {fileID: 21300000, guid: ef05927a14eabf249a2c593a103927b6, type: 3}
   spriteFromDown: {fileID: 21300000, guid: 15045254ca754074c867ba354fcffa62, type: 3}
   spriteFromLeft: {fileID: 21300000, guid: 3461668b10741134bbb9b697144e74de, type: 3}
   spriteFromRight: {fileID: 21300000, guid: f5a19aa430c5f10448ecc7855832d0e0, type: 3}
-  coinCost: 0
-  keyCost: 0
-  gemCost: 0
+  gemCost: 1
   coinReward: 0
-  keyReward: 0
   gemReward: 0
-  staminaGain: 0
+  staminaGain: 2
   staminaLoss: 0
   requiresEndKey: 0
   grantsEndKey: 0
-  oneTimeReward: 0
-  repeatableStamina: 0
+  oneTimeReward: 1
+  repeatableStamina: 1
   uniquePerFloor: 0
+  shopkeeperPrefab: {fileID: 0}
+  doorkeeperPrefab: {fileID: 0}
+  eggPrefab: {fileID: 0}
