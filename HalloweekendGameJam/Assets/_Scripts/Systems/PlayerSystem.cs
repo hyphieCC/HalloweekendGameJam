@@ -110,6 +110,7 @@ namespace Systems
             {
                 Debug.Log("Out of bounds � can't build here!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -120,6 +121,7 @@ namespace Systems
             {
                 Debug.Log("Invalid build target!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -127,6 +129,7 @@ namespace Systems
             {
                 Debug.Log("Can't build here � no connecting door!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -134,6 +137,7 @@ namespace Systems
             {
                 Debug.Log("Can't build here � tile already occupied!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -167,6 +171,7 @@ namespace Systems
             {
                 Debug.LogError($"Invalid tile access! current: {current}, target: {target}");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -174,6 +179,7 @@ namespace Systems
             {
                 Debug.Log("No room there to move into!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 
@@ -183,6 +189,7 @@ namespace Systems
             {
                 Debug.Log("No connecting door in that direction!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
+                AudioManager.Instance.PlaySFX("Error");
                 return;
             }
 

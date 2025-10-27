@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: LRoomRight(Bathroom)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: L Room (Right) (+2 Paper)
+  roomName: L Room (Right) (+2 Stamina)
   layout: 3
   spriteFromUp: {fileID: 21300000, guid: bdd6cd66bad282f439ff8109f9c90866, type: 3}
   spriteFromDown: {fileID: 21300000, guid: 4b7eea8aa3b2fe645a0b71d3e891ee18, type: 3}

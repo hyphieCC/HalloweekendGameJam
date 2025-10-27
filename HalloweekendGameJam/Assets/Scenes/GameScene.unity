@@ -3417,6 +3417,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6189234ebf5d7114da7548f62dae51ee, type: 3}
   - name: Scream
     clip: {fileID: 8300000, guid: 09e9309acb682d1449534db29993b7c5, type: 3}
+  - name: Blueprint
+    clip: {fileID: 8300000, guid: 66c9333a5c8e939448a51b159959f480, type: 3}
+  - name: Error
+    clip: {fileID: 8300000, guid: 0df33079af64adf4e8503a04a7319ad9, type: 3}
   musicSource: {fileID: 1696935985}
   sfxSource: {fileID: 921369056}
 --- !u!4 &1896533506

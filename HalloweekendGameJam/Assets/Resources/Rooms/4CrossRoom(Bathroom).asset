@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: 4CrossRoom(Bathroom)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: 4-Way Room (+2 Paper) (-1 Pebble)
+  roomName: 4-Way Room (+2 Stamina) (-1 Pebble)
   layout: 5
   spriteFromUp: {fileID: 21300000, guid: cf1b564d59e3e594db06456339aca7d6, type: 3}
   spriteFromDown: {fileID: 21300000, guid: cf1b564d59e3e594db06456339aca7d6, type: 3}

@@ -48,7 +48,7 @@ namespace Managers
             }
 
             // START ROOM
-            int startX = width / 2; // middle of the grid’s width
+            int startX = 2; // middle of the grid’s width
             int startY = 0; // bottom row
             var startTile = GridManager.Instance.GetTile(startX, startY);
             startTile.type = TileType.Start;
