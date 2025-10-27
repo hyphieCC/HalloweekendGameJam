@@ -26,7 +26,7 @@ MonoBehaviour:
   requiresEndKey: 0
   grantsEndKey: 0
   oneTimeReward: 1
-  repeatableStamina: 1
+  repeatableStamina: 0
   uniquePerFloor: 0
   shopkeeperPrefab: {fileID: 0}
   doorkeeperPrefab: {fileID: 0}

@@ -54,13 +54,14 @@ public class ShopUI : MonoBehaviour
 
         // Debug log the keypress
         if (Input.GetKeyDown(KeyCode.F))
-            Debug.Log($"[ShopUI] F pressed — PromptActive={shopPrompt.activeSelf}, ShopOpen={isShopOpen}");
+            Debug.Log($"[ShopUI] F pressed ï¿½ PromptActive={shopPrompt.activeSelf}, ShopOpen={isShopOpen}");
 
         // Open shop only when prompt is visible and not already open
         if (shopPrompt.activeSelf && !isShopOpen && Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("[ShopUI] F pressed to OPEN shop.");
             OpenShop();
+            AudioManager.Instance.PlaySFX("Peppa");
         }
 
         // Close shop only when open
@@ -76,12 +77,14 @@ public class ShopUI : MonoBehaviour
         {
             Debug.Log("[ShopUI] Trade: Coins to Gems");
             TradeCoinsForGems();
+            AudioManager.Instance.PlaySFX("Buy");
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("[ShopUI] Trade: Coins to Stamina");
             TradeCoinsForStamina();
+            AudioManager.Instance.PlaySFX("Buy");
         }
     }
 

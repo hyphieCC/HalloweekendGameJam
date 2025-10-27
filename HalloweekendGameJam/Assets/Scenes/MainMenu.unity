@@ -3225,6 +3225,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2ded7431de0b46e4b813d359edda0a87, type: 3}
   - name: Buy
     clip: {fileID: 8300000, guid: 6189234ebf5d7114da7548f62dae51ee, type: 3}
+  - name: Scream
+    clip: {fileID: 8300000, guid: 09e9309acb682d1449534db29993b7c5, type: 3}
   musicSource: {fileID: 1689605333}
   sfxSource: {fileID: 800150443}
 --- !u!4 &1625559464

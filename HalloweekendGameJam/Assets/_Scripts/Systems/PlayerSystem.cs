@@ -8,7 +8,7 @@ namespace Systems
     public class PlayerSystem : MonoBehaviour
     {
         [Header("Grid Position")]
-        public Vector2Int currentPos; // The player’s current room
+        public Vector2Int currentPos; // The player's current room
         public Vector2Int selectedPos; // The tile currently highlighted for building
 
         [Header("Player State")]
@@ -30,6 +30,8 @@ namespace Systems
         private RoomDefinition selectedRoom;
 
         private PlayerAnimationController anim;
+
+
 
         void Start()
         {
@@ -101,12 +103,12 @@ namespace Systems
         // Build a new room in facing direction
         void TryBuildRoom()
         {
-            Debug.Log("Pressed E to build — checking UI");
+            Debug.Log("Pressed E to build ï¿½ checking UI");
 
             // Check that target tile is valid
             if (!GridManager.Instance.InBounds(selectedPos.x, selectedPos.y))
             {
-                Debug.Log("Out of bounds — can't build here!");
+                Debug.Log("Out of bounds ï¿½ can't build here!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
                 return;
             }
@@ -123,14 +125,14 @@ namespace Systems
 
             if (!current.HasDoor(facingDirection))
             {
-                Debug.Log("Can't build here — no connecting door!");
+                Debug.Log("Can't build here ï¿½ no connecting door!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
                 return;
             }
 
             if (target.type != TileType.Empty)
             {
-                Debug.Log("Can't build here — tile already occupied!");
+                Debug.Log("Can't build here ï¿½ tile already occupied!");
                 FindFirstObjectByType<CameraSystem>()?.Shake();
                 return;
             }
@@ -188,6 +190,8 @@ namespace Systems
             currentPos = selectedPos;
             targetPos = new Vector3(currentPos.x, currentPos.y, transform.position.z);
             isMoving = true;
+
+            AudioManager.Instance.PlaySFX("EggPop");
 
             // Reset cursor to the new position (so it's aligned with player again)
             ApplyRoomRewards(target);
@@ -249,7 +253,7 @@ namespace Systems
 
             // Advance the player's floor level
             inventory.AdvanceFloor();
-            Debug.Log($"[Player] Reached end room — advancing to Floor {inventory.currentFloor}");
+            Debug.Log($"[Player] Reached end room ï¿½ advancing to Floor {inventory.currentFloor}");
 
             // Then trigger floor regeneration
             GameManager gm = FindFirstObjectByType<GameManager>();
@@ -313,7 +317,7 @@ namespace Systems
                     if (def.staminaLoss > 0)
                     {
                         inventory.LoseStamina(def.staminaLoss);
-                        RewardPopupManager.Instance.ShowPopup($"–{def.staminaLoss} Stamina", Color.red, popupPos);
+                        RewardPopupManager.Instance.ShowPopup($"ï¿½{def.staminaLoss} Stamina", Color.red, popupPos);
                     }
 
                     gainedSomething = true;
@@ -342,6 +346,9 @@ namespace Systems
         {
             if (isDead) return;
             isDead = true;
+
+            AudioManager.Instance.PlaySFX("Axe");
+            AudioManager.Instance.PlaySFX("Scream");
 
             Debug.Log("[PlayerSystem] Player has died. Playing death animation...");
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2802cedde458d4e9bbd6f19e90e63d, type: 3}
   m_Name: DeadEndRoom(Bathroom)
   m_EditorClassIdentifier: Assembly-CSharp::RoomDefinition
-  roomName: Dead End (+10 Paper) (-1 Pebbles)
+  roomName: Dead End (+10 Paper) (-1 Pebble)
   layout: 0
   spriteFromUp: {fileID: 21300000, guid: 735d6580b5ac35c43a2ea2d30d58e446, type: 3}
   spriteFromDown: {fileID: 21300000, guid: 7411e7b2264fd8a4d8a1685c31833859, type: 3}
@@ -26,7 +26,7 @@ MonoBehaviour:
   requiresEndKey: 0
   grantsEndKey: 0
   oneTimeReward: 1
-  repeatableStamina: 1
+  repeatableStamina: 0
   uniquePerFloor: 0
   shopkeeperPrefab: {fileID: 0}
   doorkeeperPrefab: {fileID: 0}

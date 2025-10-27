@@ -78,6 +78,8 @@ public class RoomSelectionUI : MonoBehaviour
 
         GenerateChoices();
 
+        AudioManager.Instance.PlaySFX("Blueprint");
+        
         if (animator) animator.Play("ToiletPaper_WipeIn", 0, 0);
 
         if (ScreenDimmer.Instance != null)
@@ -86,7 +88,7 @@ public class RoomSelectionUI : MonoBehaviour
         isOpen = true;
         justOpened = true;
 
-        Debug.Log($"RoomSelectionUI opened — Canvas active: {gameObject.activeInHierarchy}");
+        Debug.Log($"RoomSelectionUI opened ï¿½ Canvas active: {gameObject.activeInHierarchy}");
     }
 
     public void Hide()
@@ -108,7 +110,7 @@ public class RoomSelectionUI : MonoBehaviour
 
     private void GenerateChoices()
     {
-        Debug.Log($"GenerateChoices called — prefab:{roomSlotPrefab}, container:{choicesContainer}, bg:{toiletPaperBG}");
+        Debug.Log($"GenerateChoices called ï¿½ prefab:{roomSlotPrefab}, container:{choicesContainer}, bg:{toiletPaperBG}");
 
         foreach (var slot in activeSlots)
             Destroy(slot.gameObject);
